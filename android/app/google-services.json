@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "619200892678",
+    "project_id": "irone-b43c3",
+    "storage_bucket": "irone-b43c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619200892678:android:9f8543a4a8eacac3931887",
+        "android_client_info": {
+          "package_name": "com.ayanfe.dev.irone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619200892678-11poqtu7oq4q8mb746et4ogqjccptnfj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkRdWqIUOtH75l8QJneIS7J_QFqQd1vtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619200892678-11poqtu7oq4q8mb746et4ogqjccptnfj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "619200892678-npuecdmnt0phjenoh9u7tblfjgqptqv1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.doctor-joe"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
