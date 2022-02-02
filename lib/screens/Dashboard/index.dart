@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:irone/screens/Auth/LoginScreen.dart';
 import 'package:irone/screens/Dashboard/ArticlesScreen/index.dart';
 import 'package:irone/screens/Dashboard/HomeScreen/index.dart';
 import 'package:irone/screens/Dashboard/MessagesScreen/index.dart';
@@ -6,37 +8,69 @@ import 'package:irone/screens/Dashboard/ServicesScreen/index.dart';
 import 'package:irone/widgets/organisms/SideDrawer.dart';
 import 'package:flutter/material.dart';
 
-class Dashlayout extends StatefulWidget {
-  static const routeName = '/';
+class Dashlayout extends StatelessWidget {
   const Dashlayout({Key? key}) : super(key: key);
+  static const routeName = '/';
 
   @override
-  _DashlayoutState createState() => _DashlayoutState();
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: FirebaseAuth.instance.authStateChanges(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (snapshot.hasData) {
+          return const Dashboard();
+        } else {
+          return const LoginScreen();
+        }
+      },
+    );
+  }
 }
 
-class _DashlayoutState extends State<Dashlayout> {
+class Dashboard extends StatefulWidget {
+  const Dashboard({Key? key}) : super(key: key);
+
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
   int tabIndex = 0;
+
   var pages = [
     const HomeScreen(),
     const ServicesScreen(),
     const ArticlesScreen(),
     const MessagesScreen(),
   ];
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
         leading: Container(
-          padding: const EdgeInsets.only(left: 20),
+          margin: const EdgeInsets.only(left: 20),
+          height: 39,
+          width: 39,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(7),
+          ),
           child: GestureDetector(
             onTap: () {
               _scaffoldKey.currentState?.openDrawer();
             },
-            child: const Image(
-              image: AssetImage("assets/user-avatar.png"),
+            child: Image(
+              image: NetworkImage(user.photoURL!),
+              height: 39,
+              width: 39,
             ),
           ),
         ),

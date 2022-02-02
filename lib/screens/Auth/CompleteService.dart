@@ -1,4 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:irone/models/EmergencyServices.dart';
+import 'package:irone/models/UserModel.dart';
+import 'package:irone/screens/Auth/LoginScreen.dart';
+import 'package:irone/services/auth.dart';
 import 'package:irone/widgets/atoms/Button.dart';
 import 'package:irone/widgets/organisms/EmergencyServicesList.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +19,17 @@ class CompleteServiceScreen extends StatefulWidget {
 }
 
 class _CompleteServiceScreenState extends State<CompleteServiceScreen> {
-  List selectedEmergencyServices = [];
+  final _auth = FirebaseAuth.instance;
+  List<String> selectedEmergencyServices = [];
+  CompleteServiceScreenArguments args = {} as CompleteServiceScreenArguments;
 
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      args = ModalRoute.of(context)!.settings.arguments
+          as CompleteServiceScreenArguments;
+    });
+
     final emergencyServices = Provider.of<EmergencyServices>(context);
     final services = emergencyServices.items;
     return Scaffold(
@@ -68,7 +81,7 @@ class _CompleteServiceScreenState extends State<CompleteServiceScreen> {
                 const SizedBox(height: 36),
                 Button(
                   buttonText: 'Done',
-                  buttonClick: () => Navigator.pushNamed(context, '/login'),
+                  buttonClick: () => saveUserDetails(),
                 ),
               ],
             ),
@@ -77,4 +90,56 @@ class _CompleteServiceScreenState extends State<CompleteServiceScreen> {
       ),
     );
   }
+
+  saveUserDetails() async {
+    if (selectedEmergencyServices.isEmpty) {
+      Fluttertoast.showToast(msg: "Please select at least a service");
+    } else {
+      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+      User? user = _auth.currentUser;
+
+      UserModel userModel = UserModel();
+
+      userModel.sex = args.sex;
+      userModel.height = args.height;
+      userModel.weight = args.weight;
+      userModel.bloodType = args.bloodType;
+      userModel.dob = args.dob;
+      userModel.services = selectedEmergencyServices;
+
+      await firebaseFirestore
+          .collection("users")
+          .doc(user!.uid)
+          .update(userModel.toMap());
+
+      Fluttertoast.showToast(msg: "Profile updated. Please login!");
+
+      final provider = Provider.of<GoogleSignInProvider>(
+        context,
+        listen: false,
+      );
+      await provider.logout();
+      await _auth.signOut();
+
+      Navigator.pushNamed(
+        context,
+        LoginScreen.routeName,
+      );
+    }
+  }
+}
+
+class CompleteServiceScreenArguments {
+  final String sex;
+  final String height;
+  final String weight;
+  final String bloodType;
+  final String dob;
+  CompleteServiceScreenArguments({
+    required this.sex,
+    required this.height,
+    required this.weight,
+    required this.bloodType,
+    required this.dob,
+  });
 }

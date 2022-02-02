@@ -1,13 +1,32 @@
-import 'package:irone/models/User.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:irone/models/UserModel.dart';
 import 'package:irone/screens/Auth/LoginScreen.dart';
 import 'package:irone/screens/Dashboard/AppointmentsScreen/index.dart';
 import 'package:irone/screens/Dashboard/Bookmarks/index.dart';
 import 'package:irone/screens/Dashboard/ProfileScreen/index.dart';
 import 'package:flutter/material.dart';
+import 'package:irone/services/auth.dart';
 import 'package:provider/provider.dart';
 
-class SideDrawer extends StatelessWidget {
+class SideDrawer extends StatefulWidget {
   const SideDrawer({Key? key}) : super(key: key);
+
+  @override
+  State<SideDrawer> createState() => _SideDrawerState();
+}
+
+class _SideDrawerState extends State<SideDrawer> {
+  final _auth = FirebaseAuth.instance;
+  logoutUser() async {
+    final provider = Provider.of<GoogleSignInProvider>(
+      context,
+      listen: false,
+    );
+    await provider.logout();
+    await _auth.signOut();
+
+    Navigator.pushNamed(context, LoginScreen.routeName);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +53,7 @@ class SideDrawer extends StatelessWidget {
               ),
             ),
             Text(
-              user.userName,
+              user.userName.toString(),
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -89,8 +108,7 @@ class SideDrawer extends StatelessWidget {
                   ),
                   const SizedBox(height: 240),
                   GestureDetector(
-                    onTap: () =>
-                        Navigator.pushNamed(context, LoginScreen.routeName),
+                    onTap: () => logoutUser(),
                     child: const Text(
                       "Log out",
                       style: TextStyle(

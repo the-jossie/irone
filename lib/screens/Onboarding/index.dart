@@ -1,3 +1,4 @@
+import 'package:irone/screens/Auth/SignupScreen.dart';
 import 'package:irone/widgets/organisms/OnboardingLayout.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -25,7 +27,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       "You will get the most accurate information about any diseases from top-class doctors ",
                   image: "assets/woman-facing-right.png",
                   buttonText: 'Get Started',
-                  buttonClick: () => Navigator.pushNamed(context, '/signup'),
+                  buttonClick: () => Navigator.pushNamed(context, SignupScreen.routeName),
                 )
               : screenStage == 1
                   ? OnboardingLayout(

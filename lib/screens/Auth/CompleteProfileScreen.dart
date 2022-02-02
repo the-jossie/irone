@@ -1,5 +1,8 @@
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:irone/screens/Auth/CompleteService.dart';
+import 'package:irone/screens/Auth/components/CompleteProfileForm.dart';
 import 'package:irone/widgets/atoms/Button.dart';
-import 'package:irone/widgets/atoms/Input.dart';
+import 'package:irone/widgets/atoms/GenderSelect.dart';
 import 'package:flutter/material.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
@@ -42,7 +45,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                         ),
                         SizedBox(height: 6),
                         Text(
-                          "Let’s start with the basics",
+                          "Let's start with the basics",
                           style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                       ],
@@ -54,107 +57,31 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GestureDetector(
-                          onTap: () => {
-                            setState(() => {sex = "male"})
-                          },
-                          child: Container(
-                            height: 38,
-                            width: 133,
-                            decoration: BoxDecoration(
-                                color: sex == "male"
-                                    ? const Color(0xffEF873D)
-                                    : const Color(0xffF9F6F4),
-                                borderRadius: BorderRadius.circular(12)),
-                            child: Center(
-                                child: Text(
-                              "Male",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 18,
-                                color:
-                                    sex == "male" ? Colors.white : Colors.black,
-                              ),
-                            )),
-                          ),
+                        GenderSelect(
+                          onClick: (value) => setState(() => {sex = value}),
+                          value: "Male",
+                          selectedValue: sex,
                         ),
-                        GestureDetector(
-                          onTap: () => {
-                            setState(() => {sex = "female"})
-                          },
-                          child: Container(
-                            height: 38,
-                            width: 133,
-                            decoration: BoxDecoration(
-                                color: sex == "female"
-                                    ? const Color(0xffEF873D)
-                                    : const Color(0xffF9F6F4),
-                                borderRadius: BorderRadius.circular(12)),
-                            child: Center(
-                              child: Text(
-                                "Female",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18,
-                                  color: sex == "female"
-                                      ? Colors.white
-                                      : Colors.black,
-                                ),
-                              ),
-                            ),
-                          ),
-                        )
+                        GenderSelect(
+                          onClick: (value) => setState(() => {sex = value}),
+                          value: "Female",
+                          selectedValue: sex,
+                        ),
                       ],
                     ),
                   ),
                   const SizedBox(height: 29),
-                  Form(
-                    key: _formKey,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 43),
-                      child: Column(
-                        children: [
-                          Input(
-                            text: "Date of Birth",
-                            textController: dobController,
-                            validator: (value) => value!.length < 2
-                                ? 'Name should be at least 2 chars long'
-                                : null,
-                          ),
-                          const SizedBox(height: 20),
-                          Input(
-                            text: "Height",
-                            textController: heightController,
-                            validator: (value) => value!.length < 2
-                                ? 'Name should be at least 2 chars long'
-                                : null,
-                          ),
-                          const SizedBox(height: 20),
-                          Input(
-                            text: "Weight",
-                            textController: weightController,
-                            validator: (value) => value!.length < 2
-                                ? 'Name should be at least 2 chars long'
-                                : null,
-                          ),
-                          const SizedBox(height: 20),
-                          Input(
-                            text: "Blood Type",
-                            textController: bloodController,
-                            validator: (value) => value!.length < 2
-                                ? 'Name should be at least 2 chars long'
-                                : null,
-                          ),
-                          const SizedBox(height: 20),
-                        ],
-                      ),
-                    ),
+                  CompleteProfileForm(
+                    bloodController: bloodController,
+                    dobController: dobController,
+                    formKey: _formKey,
+                    heightController: heightController,
+                    weightController: weightController,
                   ),
                   const SizedBox(height: 36),
                   Button(
                     buttonText: 'Continue',
-                    buttonClick: () =>
-                        Navigator.pushNamed(context, '/complete-service'),
+                    buttonClick: () => submit(),
                   ),
                   const SizedBox(height: 14),
                 ],
@@ -162,5 +89,25 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
         ),
       ),
     );
+  }
+
+  void submit() {
+    if (_formKey.currentState!.validate()) {
+      if (sex == "") {
+        Fluttertoast.showToast(msg: "Please select gender!");
+      } else {
+        Navigator.pushNamed(
+          context,
+          CompleteServiceScreen.routeName,
+          arguments: CompleteServiceScreenArguments(
+            sex: sex,
+            height: heightController.text,
+            weight: weightController.text,
+            bloodType: bloodController.text,
+            dob: dobController.text,
+          ),
+        );
+      }
+    }
   }
 }

@@ -10,7 +10,7 @@ import 'package:irone/models/Chat.dart';
 import 'package:irone/models/Doctor.dart';
 import 'package:irone/models/EmergencyServices.dart';
 import 'package:irone/models/Message.dart';
-import 'package:irone/models/User.dart';
+import 'package:irone/models/UserModel.dart';
 import 'package:irone/screens/Auth/CompleteProfileScreen.dart';
 import 'package:irone/screens/Auth/CompleteService.dart';
 import 'package:irone/screens/Auth/LoginScreen.dart';

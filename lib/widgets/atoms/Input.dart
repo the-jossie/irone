@@ -4,11 +4,13 @@ class Input extends StatelessWidget {
   final TextEditingController textController;
   final Function validator;
   final String text;
+  final TextInputType keyboardType;
+
   const Input(
       {Key? key,
       required this.textController,
       required this.validator,
-      required this.text})
+      required this.text, required this.keyboardType})
       : super(key: key);
 
   @override
@@ -27,6 +29,7 @@ class Input extends StatelessWidget {
         ),
       ),
       controller: textController,
+      keyboardType: keyboardType,
       validator: (value) => validator(value),
     );
   }

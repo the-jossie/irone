@@ -1,6 +1,6 @@
 import 'package:irone/models/Chat.dart';
 import 'package:irone/models/Doctor.dart';
-import 'package:irone/models/User.dart';
+import 'package:irone/models/UserModel.dart';
 import 'package:irone/screens/Dashboard/VideoCallScreen/index.dart';
 import 'package:irone/screens/Dashboard/VoiceCallScreen/index.dart';
 import 'package:irone/widgets/organisms/ChatList.dart';

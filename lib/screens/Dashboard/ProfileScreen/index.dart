@@ -1,4 +1,4 @@
-import 'package:irone/models/User.dart';
+import 'package:irone/models/UserModel.dart';
 import 'package:irone/screens/Dashboard/ProfileScreen/ProfileInfoBox.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -59,7 +59,7 @@ class ProfileScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          user.userName,
+                          user.userName.toString(),
                           style: const TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 18,
@@ -87,7 +87,8 @@ class ProfileScreen extends StatelessWidget {
                 shrinkWrap: true,
                 children: [
                   ProfileInfoBox(
-                      primaryText: user.bloodType, secondaryText: "Blood Type"),
+                      primaryText: user.bloodType.toString(),
+                      secondaryText: "Blood Type"),
                   ProfileInfoBox(
                       primaryText: '${user.weight} Kg',
                       secondaryText: "Weight"),
@@ -95,8 +96,10 @@ class ProfileScreen extends StatelessWidget {
                       primaryText: '${user.height} cm',
                       secondaryText: "Height"),
                   ProfileInfoBox(
-                      primaryText: user.dob, secondaryText: "Birth Date"),
-                  ProfileInfoBox(primaryText: user.sex, secondaryText: "Sex"),
+                      primaryText: user.dob.toString(),
+                      secondaryText: "Birth Date"),
+                  ProfileInfoBox(
+                      primaryText: user.sex.toString(), secondaryText: "Sex"),
                 ],
               ),
             ],
