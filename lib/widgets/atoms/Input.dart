@@ -10,7 +10,8 @@ class Input extends StatelessWidget {
       {Key? key,
       required this.textController,
       required this.validator,
-      required this.text, required this.keyboardType})
+      required this.text,
+      required this.keyboardType})
       : super(key: key);
 
   @override
@@ -28,6 +29,7 @@ class Input extends StatelessWidget {
           borderRadius: BorderRadius.circular(14),
         ),
       ),
+      autocorrect: false,
       controller: textController,
       keyboardType: keyboardType,
       validator: (value) => validator(value),
