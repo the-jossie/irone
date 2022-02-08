@@ -1,4 +1,4 @@
-import 'package:irone/models/Doctor.dart';
+import 'package:irone/models/doctor.dart';
 import 'package:flutter/material.dart';
 
 class Message with ChangeNotifier {

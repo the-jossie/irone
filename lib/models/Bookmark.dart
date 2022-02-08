@@ -1,4 +1,4 @@
-import 'package:irone/models/Article.dart';
+import 'package:irone/models/article.dart';
 import 'package:flutter/material.dart';
 
 class Bookmark {

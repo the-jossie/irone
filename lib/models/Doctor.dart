@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Doctor with ChangeNotifier {
+class Doctor {
   final String name;
   final List<String> specialty;
   final String bio;
