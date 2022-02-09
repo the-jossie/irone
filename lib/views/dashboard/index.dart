@@ -1,35 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../auth/login.dart';
 import './articles.dart';
 import './home.dart';
 import './messages.dart';
 import './search.dart';
 import './services.dart';
-import 'package:irone/widgets/organisms/side_drawer.dart';
-import 'package:flutter/material.dart';
-
-class Dashlayout extends StatelessWidget {
-  const Dashlayout({Key? key}) : super(key: key);
-  static const routeName = '/dashboard';
-
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: FirebaseAuth.instance.authStateChanges(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (snapshot.hasData) {
-          return const Dashboard();
-        } else {
-          return const LoginScreen();
-        }
-      },
-    );
-  }
-}
+import '../../widgets/organisms/side_drawer.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);

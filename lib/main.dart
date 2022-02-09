@@ -16,7 +16,7 @@ import './models/appointment.dart';
 import './models/article.dart';
 import './models/bookmark.dart';
 import './models/chat.dart';
-import './models/doctor.dart';
+import 'models/doctor.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

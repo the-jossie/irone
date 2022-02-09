@@ -14,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
     final user = currentUser.user;
     return Scaffold(
       // TODO: CHECK THIS OUT oo
-      appBar: const ProfileScreenAppBar() as AppBar,
+      appBar:  ProfileScreenAppBar(context),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 19, vertical: 20),

@@ -1,3 +1,5 @@
+import '../widgets/organisms/dash_layout.dart';
+
 import '../views/auth/complete_profile_screen.dart';
 import '../views/auth/complete_service.dart';
 import '../views/auth/login.dart';
@@ -14,7 +16,6 @@ import '../views/dashboard/read_article.dart';
 import '../views/dashboard/search.dart';
 import '../views/dashboard/video_call.dart';
 import '../views/dashboard/voice_call.dart';
-import '../views/dashboard/index.dart';
 import '../views/Onboarding/index.dart';
 
 final routes = {

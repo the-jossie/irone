@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import '../../widgets/organisms/dash_layout.dart';
 import '../../models/user_model.dart';
 import '../../views/auth/complete_profile_screen.dart';
 import '../../views/auth/signup.dart';
-import '../../views/dashboard/index.dart';
 import '../../services/auth.dart';
 import '../../widgets/atoms/button.dart';
 import '../../widgets/atoms/input.dart';
@@ -200,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
               (route) => false,
             );
           } else {
-            Fluttertoast.showToast(msg: "Login Successful!");
+            Fluttertoast.showToast(msg: "Welcome back!");
             Navigator.pushReplacementNamed(
               context,
               Dashlayout.routeName,
