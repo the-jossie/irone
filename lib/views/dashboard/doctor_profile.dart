@@ -70,7 +70,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                 child: Image(
                   fit: BoxFit.contain,
                   image: AssetImage(
-                    args.doctor.imgPath,
+                    args.doctor.profileImg,
                   ),
                 ),
               ),
@@ -91,7 +91,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
                     .toList(),
               ),
               title: Text(
-                args.doctor.name,
+                "Dr. ${args.doctor.lastName}",
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 24,

@@ -1,8 +1,9 @@
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:irone/widgets/atoms/description_box.dart';
 import '../auth/complete_service.dart';
 import '../../widgets/organisms/complete_profile_form.dart';
-import 'package:irone/widgets/atoms/button.dart';
-import 'package:irone/widgets/atoms/gender_select.dart';
+import '../../widgets/atoms/button.dart';
+import '../../widgets/atoms/gender_select.dart';
 import 'package:flutter/material.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
@@ -30,26 +31,9 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
               margin: const EdgeInsets.only(top: 114, bottom: 20),
               child: Column(
                 children: [
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 52, vertical: 14),
-                    color: const Color(0xffF9F6F4),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "Complete your profile",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 24),
-                        ),
-                        SizedBox(height: 6),
-                        Text(
-                          "Let's start with the basics",
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
+                  const DescriptionBox(
+                    title: "Complete your profile",
+                    subTitle: "Let's start with the basics",
                   ),
                   const SizedBox(height: 30),
                   Container(

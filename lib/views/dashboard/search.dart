@@ -39,7 +39,7 @@ class _SearchScreenState extends State<SearchScreen> {
         if (activeTab == "Doctor") {
           setState(() {
             matchedDoctors = doctorsList
-                .where((doctor) => doctor.name.toLowerCase().contains(text))
+                .where((doctor) => doctor.lastName.toLowerCase().contains(text))
                 .toList();
           });
         } else if (activeTab == "Articles") {

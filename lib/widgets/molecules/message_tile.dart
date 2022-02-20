@@ -30,13 +30,13 @@ class MessageTile extends StatelessWidget {
               image: DecorationImage(
                 fit: BoxFit.contain,
                 image: AssetImage(
-                  message.doctor.imgPath,
+                  message.doctor.profileImg,
                 ),
               ),
             ),
           ),
           title: Text(
-            message.doctor.name,
+            "Dr. ${message.doctor.lastName}",
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 14,

@@ -71,7 +71,7 @@ class VoiceCallScreen extends StatelessWidget {
                           image: DecorationImage(
                             fit: BoxFit.contain,
                             image: AssetImage(
-                              args.doctor.imgPath,
+                              args.doctor.profileImg,
                             ),
                           ),
                         ),
@@ -80,7 +80,7 @@ class VoiceCallScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  args.doctor.name,
+                  "Dr. ${args.doctor.lastName}",
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,

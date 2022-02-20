@@ -31,7 +31,7 @@ class AppointmentTile extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.contain,
                         image: AssetImage(
-                          appointment.doctor.imgPath,
+                          appointment.doctor.profileImg,
                         ),
                       ),
                     ),
@@ -41,10 +41,7 @@ class AppointmentTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        appointment.doctor.name.length > 22
-                            ? appointment.doctor.name.replaceRange(
-                                22, appointment.doctor.name.length, "...")
-                            : appointment.doctor.name,
+                        "Dr. ${appointment.doctor.lastName.length > 22 ? appointment.doctor.lastName.replaceRange(22, appointment.doctor.lastName.length, "...") : appointment.doctor.lastName}",
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,

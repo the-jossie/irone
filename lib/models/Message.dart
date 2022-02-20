@@ -18,8 +18,8 @@ class Messages with ChangeNotifier {
   final List<Message> _items = [
     Message(
       doctor: Doctor(
-        imgPath: "assets/available-doctors/doctor-large-img.png",
-        name: "Dr Rebbeka",
+        profileImg: "assets/available-doctors/doctor-large-img.png",
+        lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
         bio:
             "Dr. Rebbeka is a Clinical Professor of Psychiatry, Obstetrics, Gynecology, and Reproductive Science at the Icahn School of Medicine at Mount Sinai which she first joined in 2007. She is an Attending in Psychiatry at Mount Sinai Medical Center. She also maintains a private practice in New York City.",
@@ -34,8 +34,8 @@ class Messages with ChangeNotifier {
     ),
     Message(
       doctor: Doctor(
-        imgPath: "assets/available-doctors/doctor-large-img.png",
-        name: "Dr Rebbeka",
+        profileImg: "assets/available-doctors/doctor-large-img.png",
+        lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
         bio:
             "Dr. Rebbeka is a Clinical Professor of Psychiatry, Obstetrics, Gynecology, and Reproductive Science at the Icahn School of Medicine at Mount Sinai which she first joined in 2007. She is an Attending in Psychiatry at Mount Sinai Medical Center. She also maintains a private practice in New York City.",
@@ -50,8 +50,8 @@ class Messages with ChangeNotifier {
     ),
     Message(
       doctor: Doctor(
-        imgPath: "assets/available-doctors/doctor-large-img.png",
-        name: "Dr Rebbeka",
+        profileImg: "assets/available-doctors/doctor-large-img.png",
+        lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
         bio:
             "Dr. Rebbeka is a Clinical Professor of Psychiatry, Obstetrics, Gynecology, and Reproductive Science at the Icahn School of Medicine at Mount Sinai which she first joined in 2007. She is an Attending in Psychiatry at Mount Sinai Medical Center. She also maintains a private practice in New York City.",
@@ -66,8 +66,8 @@ class Messages with ChangeNotifier {
     ),
     Message(
       doctor: Doctor(
-        imgPath: "assets/available-doctors/doctor-large-img.png",
-        name: "Dr Rebbeka",
+        profileImg: "assets/available-doctors/doctor-large-img.png",
+        lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
         bio:
             "Dr. Rebbeka is a Clinical Professor of Psychiatry, Obstetrics, Gynecology, and Reproductive Science at the Icahn School of Medicine at Mount Sinai which she first joined in 2007. She is an Attending in Psychiatry at Mount Sinai Medical Center. She also maintains a private practice in New York City.",

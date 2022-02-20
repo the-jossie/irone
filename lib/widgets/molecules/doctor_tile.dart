@@ -32,7 +32,7 @@ class DoctorTile extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.contain,
                   image: AssetImage(
-                    doctor.imgPath,
+                    doctor.profileImg,
                   ),
                 ),
               ),
@@ -42,9 +42,7 @@ class DoctorTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  doctor.name.length > 22
-                      ? doctor.name.replaceRange(22, doctor.name.length, "...")
-                      : doctor.name,
+                  "Dr. ${doctor.lastName.length > 22 ? doctor.lastName.replaceRange(22, doctor.lastName.length, "...") : doctor.lastName}",
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,

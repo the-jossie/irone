@@ -42,7 +42,7 @@ class AvailableDoctorsList extends StatelessWidget {
                             image: DecorationImage(
                               fit: BoxFit.contain,
                               image: AssetImage(
-                                doctor.imgPath,
+                                doctor.profileImg,
                               ),
                             ),
                           ),

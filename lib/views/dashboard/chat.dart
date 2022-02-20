@@ -59,7 +59,7 @@ class ChatScreen extends StatelessWidget {
             ),
           ),
         ),
-        title: Text(args.doctor.name),
+        title: Text("Dr. ${args.doctor.lastName}"),
         centerTitle: false,
         titleTextStyle: const TextStyle(
           color: Colors.black,
@@ -133,7 +133,7 @@ class ChatScreen extends StatelessWidget {
                           image: DecorationImage(
                             fit: BoxFit.contain,
                             image: AssetImage(
-                              args.doctor.imgPath,
+                              args.doctor.profileImg,
                             ),
                           ),
                         ),
@@ -142,7 +142,7 @@ class ChatScreen extends StatelessWidget {
                         height: 8,
                       ),
                       Text(
-                        args.doctor.name,
+                        "Dr. ${args.doctor.lastName}",
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 24,

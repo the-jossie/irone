@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:irone/controllers/article.dart';
+import 'package:irone/controllers/doctor.dart';
 import './articles.dart';
 import './home.dart';
 import './messages.dart';
@@ -25,6 +27,16 @@ class _DashboardState extends State<Dashboard> {
   ];
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    final doctorController = DoctorController();
+    final articlesController = ArticleController();
+    doctorController.getAndPersistDoctors(context);
+    articlesController.getAndPersistArticles(context);
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

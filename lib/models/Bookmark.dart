@@ -8,10 +8,10 @@ class Bookmark {
 }
 
 class Bookmarks with ChangeNotifier {
-  final Map<int, Bookmark> _items = {
-    4: Bookmark(
+  final Map<String, Bookmark> _items = {
+    "4": Bookmark(
       article: Article(
-        id: 4,
+        id: "4",
         title: "How Sunlight, the Immune System, and Covid-19 Interact",
         body:
             "For thousands of years, humans have recognized that the sun plays a role in the emergence and transmission of viruses",
@@ -24,9 +24,9 @@ class Bookmarks with ChangeNotifier {
         noOfComments: 45,
       ),
     ),
-    5: Bookmark(
+    "5": Bookmark(
       article: Article(
-        id: 5,
+        id: "5",
         title: "The Science Behind Improving Your Immune System",
         body:
             "Today i will talk about that science about your immune system that nobody ever talk about",
@@ -39,9 +39,9 @@ class Bookmarks with ChangeNotifier {
         noOfComments: 45,
       ),
     ),
-    6: Bookmark(
+    "6": Bookmark(
       article: Article(
-        id: 6,
+        id: "6",
         title: "6 Habits of Highly Healthy Brains",
         body: "Key lifestyle habits that can help keep your brain healthy.",
         imgPath: "assets/articles/article-1.png",
@@ -55,7 +55,7 @@ class Bookmarks with ChangeNotifier {
     ),
   };
 
-  Map<int, Bookmark> get items {
+  Map<String, Bookmark> get items {
     return {..._items};
   }
 
