@@ -11,6 +11,7 @@ class Article with ChangeNotifier {
   final String body;
   final int noOfLikes;
   final int noOfComments;
+  final bool bookmarked;
 
   Article({
     required this.id,
@@ -23,6 +24,7 @@ class Article with ChangeNotifier {
     required this.body,
     required this.noOfLikes,
     required this.noOfComments,
+    required this.bookmarked,
   });
 
   factory Article.fromMap(id, map) {
@@ -37,6 +39,7 @@ class Article with ChangeNotifier {
       body: map['body'],
       noOfLikes: map['noOfLikes'],
       noOfComments: map['noOfComments'],
+      bookmarked: map['bookmarked'],
     );
   }
 
@@ -52,6 +55,7 @@ class Article with ChangeNotifier {
       'body': body,
       'noOfLikes': noOfLikes,
       'noOfComments': noOfComments,
+      'bookmarked': bookmarked,
     };
   }
 }
@@ -67,44 +71,67 @@ class Articles with ChangeNotifier {
     notifyListeners();
   }
 
+  bookmarkArticle(String id, bool bookmark) {
+    _items = items.map((element) => element.id == id
+        ? Article(
+            id: element.id,
+            title: element.title,
+            imgPath: element.imgPath,
+            author: element.author,
+            authorImg: element.authorImg,
+            timestamp: element.timestamp,
+            readTime: element.readTime,
+            body: element.body,
+            noOfLikes: element.noOfLikes,
+            noOfComments: element.noOfComments,
+            bookmarked: bookmark,
+          )
+        : element);
+
+    notifyListeners();
+  }
+
   dynamic _items = [
-    // Article(
-    //   id: 1,
-    //   title: "How Sunlight, the Immune System, and Covid-19 Interact",
-    //   body:
-    //       "For thousands of years, humans have recognized that the sun plays a role in the emergence and transmission of viruses",
-    //   imgPath: "assets/articles/article-1.png",
-    //   author: "Markham Heid",
-    //   authorImg: "assets/available-doctors/doctor-2.png",
-    //   readTime: "10 min read",
-    //   timestamp: "20 Nov",
-    //   noOfLikes: 100,
-    //   noOfComments: 45,
-    // ),
-    // Article(
-    //   id: 2,
-    //   title: "The Science Behind Improving Your Immune System",
-    //   body:
-    //       "Today i will talk about that science about your immune system that nobody ever talk about",
-    //   imgPath: "assets/articles/article-2.png",
-    //   author: "Dr. Christine Bradstreet",
-    //   authorImg: "assets/available-doctors/doctor-2.png",
-    //   readTime: "7 min read",
-    //   timestamp: "20 Nov",
-    //   noOfLikes: 100,
-    //   noOfComments: 45,
-    // ),
-    // Article(
-    //   id: 3,
-    //   title: "6 Habits of Highly Healthy Brains",
-    //   body: "Key lifestyle habits that can help keep your brain healthy.",
-    //   imgPath: "assets/articles/article-1.png",
-    //   author: "Thomas Oppong",
-    //   authorImg: "assets/available-doctors/doctor-2.png",
-    //   readTime: "5 min read",
-    //   timestamp: "20 Nov",
-    //   noOfLikes: 100,
-    //   noOfComments: 45,
-    // ),
+    Article(
+      id: "1",
+      title: "How Sunlight, the Immune System, and Covid-19 Interact",
+      body:
+          "For thousands of years, humans have recognized that the sun plays a role in the emergence and transmission of viruses",
+      imgPath: "assets/articles/article-1.png",
+      author: "Markham Heid",
+      authorImg: "assets/available-doctors/doctor-2.png",
+      readTime: "10 min read",
+      timestamp: "20 Nov",
+      noOfLikes: 100,
+      noOfComments: 45,
+      bookmarked: false,
+    ),
+    Article(
+      id: "2",
+      title: "The Science Behind Improving Your Immune System",
+      body:
+          "Today i will talk about that science about your immune system that nobody ever talk about",
+      imgPath: "assets/articles/article-2.png",
+      author: "Dr. Christine Bradstreet",
+      authorImg: "assets/available-doctors/doctor-2.png",
+      readTime: "7 min read",
+      timestamp: "20 Nov",
+      noOfLikes: 100,
+      noOfComments: 45,
+      bookmarked: false,
+    ),
+    Article(
+      id: "3",
+      title: "6 Habits of Highly Healthy Brains",
+      body: "Key lifestyle habits that can help keep your brain healthy.",
+      imgPath: "assets/articles/article-1.png",
+      author: "Thomas Oppong",
+      authorImg: "assets/available-doctors/doctor-2.png",
+      readTime: "5 min read",
+      timestamp: "20 Nov",
+      noOfLikes: 100,
+      noOfComments: 45,
+      bookmarked: false,
+    ),
   ];
 }

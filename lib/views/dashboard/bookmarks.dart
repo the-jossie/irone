@@ -1,4 +1,4 @@
-import 'package:irone/models/bookmark.dart';
+import 'package:irone/models/article.dart';
 import 'package:irone/widgets/organisms/bookmarks_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +9,9 @@ class BookmarksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bookmarks = Provider.of<Bookmarks>(context);
-    final bookmarksList = bookmarks.items;
+    dynamic bookmarksList = Provider.of<Articles>(context);
+
+    bookmarksList.items.retainWhere((element) => element.bookmarked);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(

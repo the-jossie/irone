@@ -1,7 +1,6 @@
+import 'package:irone/controllers/article.dart';
 import 'package:irone/models/article.dart';
-import 'package:irone/models/bookmark.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ReadArticleScreenArguments {
   final Article article;
@@ -18,8 +17,7 @@ class ReadArticleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments
         as ReadArticleScreenArguments;
-    final bookmarks = Provider.of<Bookmarks>(context);
-    final bookmarksList = bookmarks.items;
+    final ArticleController articleController = ArticleController();
 
     return Scaffold(
       appBar: AppBar(
@@ -56,14 +54,18 @@ class ReadArticleScreen extends StatelessWidget {
             width: 9,
           ),
           GestureDetector(
-            onTap: () => bookmarks.addItem(args.article),
+            onTap: () => articleController.updateAndPersistArticle(
+              context,
+              args.article.id,
+              !args.article.bookmarked,
+            ),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                 color: const Color(0xffF9F6F4),
                 borderRadius: BorderRadius.circular(7),
               ),
-              child: bookmarksList.containsKey(args.article.id)
+              child: args.article.bookmarked
                   ? Icon(
                       Icons.bookmark,
                       color: Theme.of(context).primaryColor,

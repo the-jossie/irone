@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:irone/controllers/article.dart';
 import 'package:irone/controllers/doctor.dart';
+import 'package:irone/controllers/emergency_service.dart';
 import './articles.dart';
 import './home.dart';
 import './messages.dart';
@@ -32,8 +33,10 @@ class _DashboardState extends State<Dashboard> {
   void initState() {
     final doctorController = DoctorController();
     final articlesController = ArticleController();
+    final emergencyServicesController = EmergencyServiceController();
     doctorController.getAndPersistDoctors(context);
     articlesController.getAndPersistArticles(context);
+    emergencyServicesController.getAndPersistServices(context);
 
     super.initState();
   }

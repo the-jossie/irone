@@ -10,7 +10,7 @@ class BookmarkList extends StatelessWidget {
     return Column(
       children: bookmarksList
           .map((article) => BookmarkTile(
-                bookmark: article,
+                article: article,
               ))
           .toList(),
     );

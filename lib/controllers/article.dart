@@ -23,4 +23,16 @@ class ArticleController {
             })
         .catchError((onError) => {print(onError)});
   }
+
+  updateAndPersistArticle(
+      BuildContext context, String id, bool bookmark) async {
+    final articlesList = Provider.of<Articles>(context, listen: false);
+
+    articleService
+        .bookmarkArticle(id, bookmark)
+        .then((data) => {
+              articlesList.bookmarkArticle(id, bookmark),
+            })
+        .catchError((onError) => {print(onError)});
+  }
 }

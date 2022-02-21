@@ -1,3 +1,5 @@
+import 'package:irone/views/dashboard/bookmarks.dart';
+
 import '../widgets/organisms/dash_layout.dart';
 
 import '../views/auth/complete_profile_screen.dart';
@@ -7,7 +9,6 @@ import '../views/auth/signup.dart';
 import '../views/dashboard/all_articles.dart';
 import '../views/dashboard/all_services.dart';
 import '../views/dashboard/appointments.dart';
-import '../views/dashboard/bookmarks.dart';
 import '../views/dashboard/category.dart';
 import '../views/dashboard/chat.dart';
 import '../views/dashboard/doctor_profile.dart';

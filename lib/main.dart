@@ -14,7 +14,6 @@ import './models/emergency_services.dart';
 import './services/auth.dart';
 import './models/appointment.dart';
 import './models/article.dart';
-import './models/bookmark.dart';
 import './models/chat.dart';
 import 'models/doctor.dart';
 
@@ -55,9 +54,6 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(
           value: Chats(),
-        ),
-        ChangeNotifierProvider.value(
-          value: Bookmarks(),
         ),
       ],
       child: MaterialApp(

@@ -9,4 +9,11 @@ class ArticleDatabaseClass {
         .orderBy("timestamp", descending: true)
         .get();
   }
+
+  Future bookmarkArticle(String id, bool bookmark) async {
+    return await firebaseFirestore
+        .collection("articles")
+        .doc(id)
+        .update({"bookmarked": bookmark});
+  }
 }

@@ -1,10 +1,11 @@
-import 'package:irone/models/bookmark.dart';
+import 'package:irone/models/article.dart';
+
 import '../../views/dashboard/read_article.dart';
 import 'package:flutter/material.dart';
 
 class BookmarkTile extends StatelessWidget {
-  final Bookmark bookmark;
-  const BookmarkTile({Key? key, required this.bookmark}) : super(key: key);
+  final Article article;
+  const BookmarkTile({Key? key, required this.article}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class BookmarkTile extends StatelessWidget {
       onTap: () => Navigator.pushNamed(
         context,
         ReadArticleScreen.routeName,
-        arguments: ReadArticleScreenArguments(article: bookmark.article),
+        arguments: ReadArticleScreenArguments(article: article),
       ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 15),
@@ -32,7 +33,7 @@ class BookmarkTile extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        bookmark.article.author,
+                        article.author,
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 12,
@@ -41,7 +42,7 @@ class BookmarkTile extends StatelessWidget {
                       ),
                       const SizedBox(width: 5),
                       Text(
-                        '• ${bookmark.article.readTime}',
+                        '• ${article.readTime}',
                         style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 9,
@@ -49,7 +50,7 @@ class BookmarkTile extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        ' • ${bookmark.article.timestamp}',
+                        ' • ${article.timestamp}',
                         style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 9,
@@ -60,7 +61,7 @@ class BookmarkTile extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    bookmark.article.title,
+                    article.title,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -68,7 +69,7 @@ class BookmarkTile extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    bookmark.article.body,
+                    article.body,
                     style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 9,
@@ -82,7 +83,7 @@ class BookmarkTile extends StatelessWidget {
               width: 70,
               child: Image(
                 image: AssetImage(
-                  bookmark.article.imgPath,
+                  article.imgPath,
                 ),
               ),
             ),
