@@ -1,7 +1,6 @@
 # irone
 
-A new Flutter project.
-
+Irone is an app that serves as an online doctor. Where users don't have to go through the hassles of waiting to see a doctor for consultations. With access to a mobile phone, they can chat or get a call through to a doctor
 ## Getting Started
 
 This project is a starting point for a Flutter application.
