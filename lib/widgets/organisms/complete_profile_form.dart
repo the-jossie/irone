@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:irone/widgets/atoms/DateInput.dart';
 import 'package:irone/widgets/atoms/input.dart';
 
 class CompleteProfileForm extends StatelessWidget {
@@ -7,15 +8,19 @@ class CompleteProfileForm extends StatelessWidget {
   final TextEditingController heightController;
   final TextEditingController weightController;
   final TextEditingController bloodController;
+  final DateTime selectedDate;
+  final Function setSelectedDate;
 
-  const CompleteProfileForm(
-      {Key? key,
-      required this.formKey,
-      required this.dobController,
-      required this.heightController,
-      required this.weightController,
-      required this.bloodController})
-      : super(key: key);
+  const CompleteProfileForm({
+    Key? key,
+    required this.formKey,
+    required this.dobController,
+    required this.heightController,
+    required this.weightController,
+    required this.bloodController,
+    required this.selectedDate,
+    required this.setSelectedDate,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +30,18 @@ class CompleteProfileForm extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 43),
         child: Column(
           children: [
-            Input(
-              text: "Date of Birth",
-              textController: dobController,
-              keyboardType: TextInputType.datetime,
-              validator: (value) => value!.length < 2
-                  ? 'Name should be at least 2 chars long'
-                  : null,
+            // Input(
+            //   text: "Date of Birth",
+            //   textController: dobController,
+            //   keyboardType: TextInputType.datetime,
+            //   validator: (value) => value!.length < 2
+            //       ? 'Name should be at least 2 chars long'
+            //       : null,
+            // ),
+            DateInput(
+              selectedDate: selectedDate,
+              setSelectedDate: setSelectedDate,
+              dateController: dobController,
             ),
             const SizedBox(height: 20),
             Input(

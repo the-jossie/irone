@@ -1,4 +1,3 @@
-
 import 'package:irone/models/doctor.dart';
 import 'package:irone/models/message.dart';
 import 'package:irone/widgets/organisms/available_doctors_list.dart';

@@ -8,7 +8,6 @@ import '../../services/auth.dart';
 import '../../widgets/atoms/button.dart';
 import '../../widgets/organisms/emergency_services_list.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CompleteServiceScreen extends StatefulWidget {
   static const routeName = '/complete-service';
@@ -54,7 +53,7 @@ class _CompleteServiceScreenState extends State<CompleteServiceScreen> {
                       ),
                       SizedBox(height: 6),
                       Text(
-                        "You can choose as many as you like, we will  show recommended doctor and articles according to this",
+                        "You can choose as many as you like, we will  show recommended doctor and articles according to these.",
                         style: TextStyle(
                             fontWeight: FontWeight.w500, fontSize: 12),
                       ),
@@ -65,7 +64,7 @@ class _CompleteServiceScreenState extends State<CompleteServiceScreen> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 23),
                   child: EmergencyServicesList(
-                    title: "Find Your Services",
+                    title: "Select Your Services",
                     titleSize: 24,
                     services: services,
                     selectedEmergencyServices: selectedEmergencyServices,

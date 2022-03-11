@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../widgets/atoms/description_box.dart';
-import '../../widgets/atoms/logo_box.dart';
-import '../../widgets/organisms/signup_form.dart';
+import '/views/auth/login.dart';
+import '/widgets/atoms/description_box.dart';
+import '/widgets/atoms/logo_box.dart';
+import '/widgets/organisms/signup_form.dart';
 
 class SignupScreen extends StatefulWidget {
   static const routeName = '/signup';
@@ -39,7 +40,8 @@ class _SignupScreenState extends State<SignupScreen> {
                         const Text("Already have an account?"),
                         const SizedBox(width: 4),
                         GestureDetector(
-                          onTap: () => Navigator.pushNamed(context, '/login'),
+                          onTap: () => Navigator.pushNamed(
+                              context, LoginScreen.routeName),
                           child: Text(
                             "Log in",
                             style: TextStyle(

@@ -1,8 +1,8 @@
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:irone/widgets/atoms/description_box.dart';
+import '/widgets/atoms/button.dart';
+import '/widgets/atoms/description_box.dart';
 import '../auth/complete_service.dart';
 import '../../widgets/organisms/complete_profile_form.dart';
-import '../../widgets/atoms/button.dart';
 import '../../widgets/atoms/gender_select.dart';
 import 'package:flutter/material.dart';
 
@@ -17,10 +17,18 @@ class CompleteProfileScreen extends StatefulWidget {
 class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
   String sex = "";
   final _formKey = GlobalKey<FormState>();
+  DateTime selectedDate = DateTime.now();
   TextEditingController dobController = TextEditingController();
   TextEditingController heightController = TextEditingController();
   TextEditingController weightController = TextEditingController();
   TextEditingController bloodController = TextEditingController();
+
+  setSelectedDate(DateTime date) {
+    setState(() {
+      selectedDate = date;
+      dobController.text = date.toString();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +44,11 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                     subTitle: "Let's start with the basics",
                   ),
                   const SizedBox(height: 30),
+                  const Text(
+                    "Select Gender",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  const SizedBox(height: 20),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 40),
                     child: Row(
@@ -56,6 +69,8 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   ),
                   const SizedBox(height: 29),
                   CompleteProfileForm(
+                    setSelectedDate: (DateTime date) => setSelectedDate(date),
+                    selectedDate: selectedDate,
                     bloodController: bloodController,
                     dobController: dobController,
                     formKey: _formKey,
