@@ -1,14 +1,22 @@
-import 'package:irone/models/doctor.dart';
+import '/models/user_model.dart';
+import 'package:provider/provider.dart';
+
+import '/controllers/message.dart';
+import '/models/doctor.dart';
 import '../../views/dashboard/chat.dart';
-import 'package:irone/widgets/atoms/button.dart';
+import '/widgets/atoms/button.dart';
 import 'package:flutter/material.dart';
 
 class OnlineConsultView extends StatelessWidget {
   final Doctor doctor;
-  const OnlineConsultView({Key? key, required this.doctor}) : super(key: key);
+  OnlineConsultView({Key? key, required this.doctor}) : super(key: key);
+  MessageController messageController = MessageController();
 
   @override
   Widget build(BuildContext context) {
+    final currentUser = Provider.of<CurrentUser>(context);
+    String convoID = messageController.getConversationID(
+        currentUser.user.userId!, doctor.id);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.end,
@@ -42,7 +50,7 @@ class OnlineConsultView extends StatelessWidget {
           buttonClick: () => Navigator.pushNamed(
             context,
             ChatScreen.routeName,
-            arguments: ChatScreenArguments(doctor: doctor),
+            arguments: ChatScreenArguments(doctor: doctor, convoID: convoID),
           ),
         ),
       ],

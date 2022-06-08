@@ -1,48 +1,88 @@
-import '../../models/chat.dart';
-import '../../models/doctor.dart';
-import '../../models/user_model.dart';
-import './video_call.dart';
-import './voice_call.dart';
-import 'package:irone/widgets/organisms/chats_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '/services/message.dart';
+import '/models/chat.dart';
+import '/models/doctor.dart';
+import '/models/user_model.dart';
+import 'video_call.dart';
+import 'voice_call.dart';
+import '/widgets/organisms/chats_list.dart';
+
 class ChatScreenArguments {
   final Doctor doctor;
-
-  ChatScreenArguments({required this.doctor});
+  String convoID;
+  ChatScreenArguments({
+    required this.doctor,
+    required this.convoID,
+  });
 }
 
-class ChatScreen extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
   ChatScreen({
     Key? key,
   }) : super(key: key);
 
-  static const routeName = '/chat';
-  final TextEditingController textController = TextEditingController();
+  static const routeName = 'chat';
 
-  void sendMessage(message, chats, user) {
-    if (message.isNotEmpty) {
-      chats.addItem(
-        Chat(
-          message: message,
-          senderImg: user.profileImg,
-          time: DateTime.now().toString(),
-          isSentByMe: true,
-        ),
+  @override
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  final TextEditingController textController = TextEditingController();
+  final _scrollController = ScrollController();
+
+  late Stream chatMessagesStream;
+
+  final MessageService messagesService = MessageService();
+
+  void sendMessage(
+      {required String convoID,
+      required String uid,
+      required String profileImg,
+      required String recipientId,
+      required String message}) {
+    if (textController.text.trim() != '') {
+      messagesService.sendMessage(
+        convoID: convoID,
+        uid: uid,
+        senderImg: profileImg,
+        recipientID: recipientId,
+        message: textController.text.trim(),
+        timestamp: DateTime.now().millisecondsSinceEpoch.toString(),
       );
-      textController.text = "";
+      // chats.addItem(
+      //   Chat(
+      //     message: textController.text.trim(),
+      //     senderImg: user.profileImg,
+      //     time: DateTime.now().millisecondsSinceEpoch.toString(),
+      //     isSentByMe: true,
+      //   ),
+      // );
+      _scrollController.animateTo(0.0,
+          duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+      textController.clear();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final args =
-        ModalRoute.of(context)!.settings.arguments as ChatScreenArguments;
-    final chats = Provider.of<Chats>(context);
-    final chatsList = chats.items;
     final currentUser = Provider.of<CurrentUser>(context);
     final user = currentUser.user;
+    final args =
+        ModalRoute.of(context)!.settings.arguments as ChatScreenArguments;
+
+    String recipientId =
+        args.convoID.replaceAll("_", "").replaceAll(user.userId.toString(), "");
+
+    messagesService.streamChatMessages(args.convoID).then((val) {
+      setState(() {
+        chatMessagesStream = val;
+      });
+    });
+    final chats = Provider.of<Chats>(context);
+    final chatsList = chats.items;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -207,7 +247,7 @@ class ChatScreen extends StatelessWidget {
                         height: 38,
                       ),
                       ChatList(
-                        chatsList: chatsList.values.toList(),
+                        chatMessageStream: chatMessagesStream,
                       ),
                     ],
                   ),
@@ -246,9 +286,16 @@ class ChatScreen extends StatelessWidget {
                           color: const Color(0xfff9f6f4),
                           borderRadius: BorderRadius.circular(12)),
                       child: TextFormField(
+                        autofocus: true,
                         enableSuggestions: true,
                         onFieldSubmitted: (value) {
-                          sendMessage(value, chats, user);
+                          sendMessage(
+                            convoID: args.convoID,
+                            uid: user.userId!,
+                            profileImg: user.profileImg!,
+                            recipientId: recipientId,
+                            message: value,
+                          );
                         },
                         decoration: const InputDecoration(
                           hintText: "Type Your problems",
@@ -262,10 +309,11 @@ class ChatScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       sendMessage(
-                        textController.text,
-                        chats,
-                        user,
-                      );
+                          convoID: args.convoID,
+                          uid: user.userId!,
+                          profileImg: user.profileImg!,
+                          recipientId: recipientId,
+                          message: textController.text.trim());
                     },
                     child: Container(
                       padding: const EdgeInsets.all(7),

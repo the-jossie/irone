@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Doctor {
+  final String id;
   final String lastName;
   final List<dynamic> specialty;
   final String bio;
@@ -11,6 +12,7 @@ class Doctor {
   final bool isActive;
 
   Doctor({
+    required this.id,
     required this.lastName,
     required this.profileImg,
     required this.specialty,
@@ -23,6 +25,7 @@ class Doctor {
 
   factory Doctor.fromMap(map) {
     return Doctor(
+      id: map['userId'],
       lastName: map['lastName'],
       specialty: map['specialty'],
       bio: map['bio'],
@@ -36,6 +39,7 @@ class Doctor {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'lastName': lastName,
       'specialty': specialty,
       'profileImg': profileImg,
@@ -51,6 +55,7 @@ class Doctor {
 class Doctors with ChangeNotifier {
   dynamic _items = [
     Doctor(
+      id: "1",
       profileImg: "assets/available-doctors/doctor-large-img.png",
       lastName: "Dr Rebbeka",
       specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -62,6 +67,7 @@ class Doctors with ChangeNotifier {
       isActive: false,
     ),
     Doctor(
+      id: "2",
       profileImg: "assets/available-doctors/doctor-2.png",
       lastName: "Shari I. Lusskin, MD",
       specialty: ["Psychology", "TeleMedicine"],
@@ -73,6 +79,7 @@ class Doctors with ChangeNotifier {
       isActive: true,
     ),
     Doctor(
+      id: "3",
       profileImg: "assets/available-doctors/doctor-3.png",
       lastName: "Dr Rafsan Jany",
       specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -84,6 +91,7 @@ class Doctors with ChangeNotifier {
       isActive: false,
     ),
     Doctor(
+      id: "4",
       profileImg: "assets/available-doctors/doctor-large-img.png",
       lastName: "Dr Fillmore",
       specialty: ["Psychology", "TeleMedicine"],
@@ -95,6 +103,7 @@ class Doctors with ChangeNotifier {
       isActive: true,
     ),
     Doctor(
+      id: "5",
       profileImg: "assets/available-doctors/doctor-5.png",
       lastName: "Dr. Bruce Scott Hoffman, PHD",
       specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -106,6 +115,7 @@ class Doctors with ChangeNotifier {
       isActive: true,
     ),
     Doctor(
+      id: "6",
       profileImg: "assets/available-doctors/doctor-3.png",
       lastName: "Alnetta Hooper, PsyD",
       specialty: ["Psychology", "TeleMedicine"],
@@ -117,6 +127,7 @@ class Doctors with ChangeNotifier {
       isActive: false,
     ),
     Doctor(
+      id: "7",
       profileImg: "assets/available-doctors/doctor-4.png",
       lastName: "Dr. Kelly Geisler",
       specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -128,6 +139,7 @@ class Doctors with ChangeNotifier {
       isActive: true,
     ),
     Doctor(
+      id: "8",
       profileImg: "assets/available-doctors/doctor-5.png",
       lastName: "Dr B. Sick",
       specialty: ["Psychology", "TeleMedicine"],

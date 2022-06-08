@@ -1,18 +1,32 @@
+import 'package:irone/controllers/message.dart';
 import 'package:irone/models/message.dart';
+import 'package:irone/models/user_model.dart';
+import 'package:provider/provider.dart';
 import '../../views/dashboard/chat.dart';
 import 'package:flutter/material.dart';
 
 class MessageTile extends StatelessWidget {
   final Message message;
-  const MessageTile({Key? key, required this.message}) : super(key: key);
+  MessageTile({
+    Key? key,
+    required this.message,
+  }) : super(key: key);
+
+  MessageController messageController = MessageController();
 
   @override
   Widget build(BuildContext context) {
+    final currentUser = Provider.of<CurrentUser>(context);
+    String convoID = messageController.getConversationID(
+        currentUser.user.userId!, message.doctor.id);
     return GestureDetector(
       onTap: () => Navigator.pushNamed(
         context,
-        '/chat',
-        arguments: ChatScreenArguments(doctor: message.doctor),
+        ChatScreen.routeName,
+        arguments: ChatScreenArguments(
+          doctor: message.doctor,
+          convoID: convoID,
+        ),
       ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 15),

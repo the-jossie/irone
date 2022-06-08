@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:irone/shared/helper_functions.dart';
 import '../../widgets/organisms/dash_layout.dart';
 import '../../models/user_model.dart';
 import '../../views/auth/complete_profile_screen.dart';
@@ -12,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
-  static const routeName = '/login';
+  static const routeName = 'login';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -187,6 +188,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
           final loggedInUser = currentUser.user;
 
+          HelperFunctions.saveUserIdSharedPreference(loggedInUser.userId!);
+          HelperFunctions.saveUserLoggedInSharedPreference(true);
+
           if (loggedInUser.sex == null ||
               loggedInUser.dob == null ||
               loggedInUser.height == null ||
@@ -244,18 +248,47 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         isLoading = true;
       });
-      try {
-        await _auth
-            .signInWithEmailAndPassword(
-                email: emailController.text, password: passwordController.text)
-            .then((uid) => {
-                  redirect(context),
-                });
-      } catch (e) {
+      await _auth
+          .signInWithEmailAndPassword(
+              email: emailController.text, password: passwordController.text)
+          .then((uid) => {
+                redirect(context),
+              })
+          .catchError((e) {
+        String error;
+        switch (e.code) {
+          case "ERROR_INVALID_EMAIL":
+          case "invalid-email":
+            error = "Email address is invalid.";
+            break;
+          case "ERROR_WRONG_PASSWORD":
+          case "wrong-password":
+            error = "Email/Password error.";
+            break;
+          case "ERROR_USER_NOT_FOUND":
+          case "user-not-found":
+            error = "No user found with this email.";
+            break;
+          case "ERROR_USER_DISABLED":
+          case "user-disabled":
+            error = "User account disabled.";
+            break;
+          case "ERROR_TOO_MANY_REQUESTS":
+            error = "Too many requests, try again later.";
+            break;
+          case "ERROR_OPERATION_NOT_ALLOWED":
+          case "operation-not-allowed":
+            error = "Server error, please try again later.";
+            break;
+          default:
+            error = "Login failed. Please try again.";
+            break;
+        }
         setState(() {
           isLoading = false;
         });
-      }
+        Fluttertoast.showToast(msg: error);
+      });
     }
   }
 
@@ -263,7 +296,6 @@ class _LoginScreenState extends State<LoginScreen> {
     try {
       FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
       User? user = _auth.currentUser;
-
       UserModel userModel = UserModel();
 
       userModel.email = user!.email;

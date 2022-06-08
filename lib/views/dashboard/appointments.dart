@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 class AppointmentsScreen extends StatelessWidget {
   const AppointmentsScreen({Key? key}) : super(key: key);
-  static const routeName = '/appointments';
+  static const routeName = 'appointments';
 
   @override
   Widget build(BuildContext context) {

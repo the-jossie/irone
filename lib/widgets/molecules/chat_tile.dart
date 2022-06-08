@@ -1,22 +1,27 @@
-import 'package:irone/models/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import '/models/user_model.dart';
 
 class ChatTile extends StatelessWidget {
-  final Chat chat;
+  final dynamic chat;
   const ChatTile({Key? key, required this.chat}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    final currentUser = Provider.of<CurrentUser>(context);
+    final user = currentUser.user;
+final bool isSentByMe = chat['idFrom'] == user.userId;
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: Column(
         children: [
           Text(
-            DateFormat('HH:mm a').format(
-              DateTime.parse(chat.time),
-            ),
-            // chat.time,
+            chat['timestamp'],
+            // DateFormat('HH:mm a').format(
+            //   DateTime.parse(chat['timestamp']),
+            // ),
             style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
@@ -25,11 +30,11 @@ class ChatTile extends StatelessWidget {
           const SizedBox(height: 8),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: chat.isSentByMe
+            mainAxisAlignment: isSentByMe
                 ? MainAxisAlignment.end
                 : MainAxisAlignment.start,
             children: [
-              chat.isSentByMe
+              isSentByMe
                   ? Container()
                   : Container(
                       width: 43,
@@ -39,7 +44,7 @@ class ChatTile extends StatelessWidget {
                         image: DecorationImage(
                           fit: BoxFit.contain,
                           image: AssetImage(
-                            chat.senderImg,
+                            chat['senderImg'],
                           ),
                         ),
                       ),
@@ -53,7 +58,7 @@ class ChatTile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.25),
                 ),
                 child: Text(
-                  chat.message,
+                  chat['content'],
                   style: const TextStyle(
                     color: Color(0xff393938),
                     fontWeight: FontWeight.w500,
@@ -62,7 +67,7 @@ class ChatTile extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 17),
-              chat.isSentByMe
+              isSentByMe
                   ? Container(
                       width: 43,
                       height: 43,
@@ -71,7 +76,7 @@ class ChatTile extends StatelessWidget {
                         image: DecorationImage(
                           fit: BoxFit.contain,
                           image: AssetImage(
-                            chat.senderImg,
+                            chat['senderImg'],
                           ),
                         ),
                       ),

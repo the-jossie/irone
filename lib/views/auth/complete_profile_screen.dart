@@ -7,7 +7,7 @@ import '../../widgets/atoms/gender_select.dart';
 import 'package:flutter/material.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
-  static const routeName = '/complete-profile';
+  static const routeName = 'complete-profile';
   const CompleteProfileScreen({Key? key}) : super(key: key);
 
   @override

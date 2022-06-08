@@ -68,7 +68,7 @@ class UserModel {
 class CurrentUser with ChangeNotifier {
   final firebaseUser = FirebaseAuth.instance.currentUser;
 
-  UserModel _user = UserModel();
+  late UserModel _user;
 
   UserModel get user {
     return _user;

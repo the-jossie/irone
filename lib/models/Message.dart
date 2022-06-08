@@ -7,17 +7,39 @@ class Message with ChangeNotifier {
   final String lastMsgTime;
   final bool isRead;
 
-  Message(
-      {required this.doctor,
-      required this.lastMessage,
-      required this.lastMsgTime,
-      required this.isRead});
+  Message({
+    required this.doctor,
+    required this.lastMessage,
+    required this.lastMsgTime,
+    required this.isRead,
+  });
+
+  factory Message.fromMap(map) {
+    return Message(
+      doctor: Doctor(
+        id: '1',
+        profileImg: "assets/available-doctors/doctor-large-img.png",
+        lastName: "Dr Rebbeka",
+        specialty: ["Reproductive Psychiatry", "Psychiatry"],
+        bio:
+            "Dr. Rebbeka is a Clinical Professor of Psychiatry, Obstetrics, Gynecology, and Reproductive Science at the Icahn School of Medicine at Mount Sinai which she first joined in 2007. She is an Attending in Psychiatry at Mount Sinai Medical Center. She also maintains a private practice in New York City.",
+        stars: 5,
+        reviews: 220,
+        yearsOfExp: 6,
+        isActive: false,
+      ),
+      lastMessage: "You have to be more carefull...",
+      lastMsgTime: "Just Now",
+      isRead: false,
+    );
+  }
 }
 
 class Messages with ChangeNotifier {
   final List<Message> _items = [
     Message(
       doctor: Doctor(
+        id: '1',
         profileImg: "assets/available-doctors/doctor-large-img.png",
         lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -34,6 +56,7 @@ class Messages with ChangeNotifier {
     ),
     Message(
       doctor: Doctor(
+        id: '2',
         profileImg: "assets/available-doctors/doctor-large-img.png",
         lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -50,6 +73,7 @@ class Messages with ChangeNotifier {
     ),
     Message(
       doctor: Doctor(
+        id: '3',
         profileImg: "assets/available-doctors/doctor-large-img.png",
         lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -66,6 +90,7 @@ class Messages with ChangeNotifier {
     ),
     Message(
       doctor: Doctor(
+        id: '4',
         profileImg: "assets/available-doctors/doctor-large-img.png",
         lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],

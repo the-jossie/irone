@@ -18,6 +18,7 @@ class Appointments with ChangeNotifier {
   final List<Appointment> _items = [
     Appointment(
       doctor: Doctor(
+        id: '1',
         profileImg: "assets/available-doctors/doctor-large-img.png",
         lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -34,6 +35,7 @@ class Appointments with ChangeNotifier {
     ),
     Appointment(
       doctor: Doctor(
+        id: '2',
         profileImg: "assets/available-doctors/doctor-large-img.png",
         lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -50,6 +52,7 @@ class Appointments with ChangeNotifier {
     ),
     Appointment(
       doctor: Doctor(
+        id: '3',
         profileImg: "assets/available-doctors/doctor-large-img.png",
         lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],
@@ -66,6 +69,7 @@ class Appointments with ChangeNotifier {
     ),
     Appointment(
       doctor: Doctor(
+        id: '4',
         profileImg: "assets/available-doctors/doctor-large-img.png",
         lastName: "Dr Rebbeka",
         specialty: ["Reproductive Psychiatry", "Psychiatry"],

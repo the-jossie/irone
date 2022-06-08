@@ -10,7 +10,7 @@ class ReadArticleScreenArguments {
 
 class ReadArticleScreen extends StatelessWidget {
   ReadArticleScreen({Key? key}) : super(key: key);
-  static const routeName = '/read-article';
+  static const routeName = 'read-article';
   final TextEditingController textController = TextEditingController();
 
   @override

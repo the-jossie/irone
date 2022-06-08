@@ -5,7 +5,7 @@ import '/widgets/atoms/logo_box.dart';
 import '/widgets/organisms/signup_form.dart';
 
 class SignupScreen extends StatefulWidget {
-  static const routeName = '/signup';
+  static const routeName = 'signup';
   const SignupScreen({Key? key}) : super(key: key);
 
   @override

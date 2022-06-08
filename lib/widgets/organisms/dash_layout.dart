@@ -5,7 +5,7 @@ import '../../views/dashboard/index.dart';
 
 class Dashlayout extends StatelessWidget {
   const Dashlayout({Key? key}) : super(key: key);
-  static const routeName = '/dashboard';
+  static const routeName = 'dashboard';
 
   @override
   Widget build(BuildContext context) {

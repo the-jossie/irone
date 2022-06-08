@@ -3,7 +3,7 @@ import '../../widgets/organisms/onboarding_layout.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  static const routeName = '/onboarding';
+  static const routeName = 'onboarding';
   const OnboardingScreen({Key? key}) : super(key: key);
 
   @override

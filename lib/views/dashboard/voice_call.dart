@@ -11,7 +11,7 @@ class VoiceCallScreenArguments {
 
 class VoiceCallScreen extends StatelessWidget {
   const VoiceCallScreen({Key? key}) : super(key: key);
-  static const routeName = '/voice-call';
+  static const routeName = 'voice-call';
 
   @override
   Widget build(BuildContext context) {

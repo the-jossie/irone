@@ -10,7 +10,7 @@ import '../../widgets/organisms/emergency_services_list.dart';
 import 'package:flutter/material.dart';
 
 class CompleteServiceScreen extends StatefulWidget {
-  static const routeName = '/complete-service';
+  static const routeName = 'complete-service';
   const CompleteServiceScreen({Key? key}) : super(key: key);
 
   @override

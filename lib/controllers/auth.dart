@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import '/shared/helper_functions.dart';
 import '../views/auth/complete_profile_screen.dart';
 import '../models/user_model.dart';
 
@@ -138,5 +139,15 @@ class AuthController {
         },
       );
     }
+  }
+
+  Future getLoggedInState() async {
+    await HelperFunctions.getUserLoggedInSharedPreference().then((value) {
+      if (value != null && value == true) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 }

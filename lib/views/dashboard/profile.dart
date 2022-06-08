@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
-  static const routeName = '/profile';
+  static const routeName = 'profile';
 
   @override
   Widget build(BuildContext context) {

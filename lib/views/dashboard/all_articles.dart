@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 class AllArticlesScreen extends StatelessWidget {
   const AllArticlesScreen({Key? key}) : super(key: key);
 
-  static const routeName = '/all-articles';
+  static const routeName = 'all-articles';
   @override
   Widget build(BuildContext context) {
     final articles = Provider.of<Articles>(context);

@@ -1,3 +1,4 @@
+import 'package:irone/views/auth/signup.dart';
 import 'package:irone/widgets/atoms/button.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,8 @@ class OnboardingLayout extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, '/signup'),
+                  onTap: () =>
+                      Navigator.pushNamed(context, SignupScreen.routeName),
                   child: const Text(
                     "Skip",
                     style: TextStyle(
