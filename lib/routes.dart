@@ -1,3 +1,5 @@
+import 'package:irone/screens/splash_screen.dart';
+
 import '/screens/auth/complete_profile_screen.dart';
 import 'screens/auth/complete_service.dart';
 import 'screens/auth/login_screen.dart';
@@ -18,6 +20,7 @@ import 'screens/dashboard/index.dart';
 import 'screens/onboarding/index.dart';
 
 final routes = {
+  SplashScreen.routeName: (context) => const SplashScreen(),
   OnboardingScreen.routeName: (context) => const OnboardingScreen(),
   SignupScreen.routeName: (context) => const SignupScreen(),
   CompleteProfileScreen.routeName: (context) => const CompleteProfileScreen(),
