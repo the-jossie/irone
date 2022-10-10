@@ -1,10 +1,11 @@
-import 'package:irone/screens/Dashboard/ArticlesScreen/index.dart';
-import 'package:irone/screens/Dashboard/HomeScreen/index.dart';
-import 'package:irone/screens/Dashboard/MessagesScreen/index.dart';
-import 'package:irone/screens/Dashboard/SearchScreen/index.dart';
-import 'package:irone/screens/Dashboard/ServicesScreen/index.dart';
-import 'package:irone/widgets/organisms/SideDrawer.dart';
 import 'package:flutter/material.dart';
+
+import '/screens/dashboard/articles_screen/index.dart';
+import '/screens/dashboard/home_screen/index.dart';
+import '/screens/dashboard/messages_screen/index.dart';
+import '/screens/dashboard/search_screen/index.dart';
+import '/screens/dashboard/services_screen/index.dart';
+import '/widgets/organisms/side_drawer.dart';
 
 class Dashlayout extends StatefulWidget {
   static const routeName = 'dashboard';

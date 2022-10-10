@@ -1,7 +1,8 @@
-import 'package:irone/models/Bookmark.dart';
-import 'package:irone/widgets/organisms/BookmarksList.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '/models/bookmark.dart';
+import '/widgets/organisms/bookmarks_list.dart';
 
 class BookmarksScreen extends StatelessWidget {
   const BookmarksScreen({Key? key}) : super(key: key);

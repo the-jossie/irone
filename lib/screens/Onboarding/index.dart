@@ -1,5 +1,6 @@
-import 'package:irone/widgets/organisms/OnboardingLayout.dart';
 import 'package:flutter/material.dart';
+
+import '/widgets/organisms/onboarding_layout.dart';
 
 class OnboardingScreen extends StatefulWidget {
   static const routeName = 'onboarding';
