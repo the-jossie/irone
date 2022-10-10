@@ -1,5 +1,4 @@
-import 'package:irone/screens/Dashboard/index.dart';
-import 'package:irone/services/auth.dart';
+import 'package:irone/services/auth_service.dart';
 import 'package:irone/widgets/atoms/Button.dart';
 import 'package:irone/widgets/atoms/Input.dart';
 import 'package:flutter/material.dart';
@@ -115,9 +114,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     Button(
                       buttonText: 'Log In',
                       buttonClick: () {
-                        final provider = Provider.of<GoogleSignInProvider>(
-                            context,
-                            listen: false);
+                        final provider =
+                            Provider.of<AuthService>(context, listen: false);
 
                         provider.googleLogin();
                         // Navigator.pushNamed(context, Dashlayout.routeName);
