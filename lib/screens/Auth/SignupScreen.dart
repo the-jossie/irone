@@ -3,7 +3,7 @@ import 'package:irone/widgets/atoms/Input.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
-  static const routeName = '/signup';
+  static const routeName = 'signup';
   const SignupScreen({Key? key}) : super(key: key);
 
   @override
@@ -140,11 +140,11 @@ class _SignupScreenState extends State<SignupScreen> {
                     Button(
                       buttonText: 'Sign Up',
                       buttonClick: () =>
-                          Navigator.pushNamed(context, '/complete-profile'),
+                          Navigator.pushNamed(context, 'complete-profile'),
                     ),
                     const SizedBox(height: 14),
                     GestureDetector(
-                      onTap: () => Navigator.pushNamed(context, '/login'),
+                      onTap: () => Navigator.pushNamed(context, 'login'),
                       child: Text(
                         "Log in",
                         style: TextStyle(

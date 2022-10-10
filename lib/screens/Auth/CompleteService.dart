@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CompleteServiceScreen extends StatefulWidget {
-  static const routeName = '/complete-service';
+  static const routeName = 'complete-service';
   const CompleteServiceScreen({Key? key}) : super(key: key);
 
   @override
@@ -68,7 +68,7 @@ class _CompleteServiceScreenState extends State<CompleteServiceScreen> {
                 const SizedBox(height: 36),
                 Button(
                   buttonText: 'Done',
-                  buttonClick: () => Navigator.pushNamed(context, '/login'),
+                  buttonClick: () => Navigator.pushNamed(context, 'login'),
                 ),
               ],
             ),

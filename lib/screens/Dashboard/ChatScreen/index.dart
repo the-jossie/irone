@@ -18,7 +18,7 @@ class ChatScreen extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  static const routeName = '/chat';
+  static const routeName = 'chat';
   final TextEditingController textController = TextEditingController();
 
   void sendMessage(message, chats, user) {

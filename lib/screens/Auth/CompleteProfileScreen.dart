@@ -3,7 +3,7 @@ import 'package:irone/widgets/atoms/Input.dart';
 import 'package:flutter/material.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
-  static const routeName = '/complete-profile';
+  static const routeName = 'complete-profile';
   const CompleteProfileScreen({Key? key}) : super(key: key);
 
   @override
@@ -154,7 +154,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                   Button(
                     buttonText: 'Continue',
                     buttonClick: () =>
-                        Navigator.pushNamed(context, '/complete-service'),
+                        Navigator.pushNamed(context, 'complete-service'),
                   ),
                   const SizedBox(height: 14),
                 ],

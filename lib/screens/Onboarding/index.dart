@@ -2,7 +2,7 @@ import 'package:irone/widgets/organisms/OnboardingLayout.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  static const routeName = '/onboarding';
+  static const routeName = 'onboarding';
   const OnboardingScreen({Key? key}) : super(key: key);
 
   @override
@@ -25,7 +25,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       "You will get the most accurate information about any diseases from top-class doctors ",
                   image: "assets/woman-facing-right.png",
                   buttonText: 'Get Started',
-                  buttonClick: () => Navigator.pushNamed(context, '/signup'),
+                  buttonClick: () => Navigator.pushNamed(context, 'signup'),
                 )
               : screenStage == 1
                   ? OnboardingLayout(

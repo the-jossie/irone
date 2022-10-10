@@ -16,7 +16,7 @@ class DoctorProfileArguments {
 class DoctorProfile extends StatefulWidget {
   const DoctorProfile({Key? key}) : super(key: key);
 
-  static const routeName = '/doctor-profile';
+  static const routeName = 'doctor-profile';
 
   @override
   State<DoctorProfile> createState() => _DoctorProfileState();

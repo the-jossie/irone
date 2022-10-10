@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
-  static const routeName = '/login';
+  static const routeName = 'login';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 14),
                     GestureDetector(
-                      onTap: () => Navigator.pushNamed(context, '/signup'),
+                      onTap: () => Navigator.pushNamed(context, 'signup'),
                       child: Text(
                         "create an Account",
                         style: TextStyle(

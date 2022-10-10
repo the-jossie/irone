@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 class BookmarksScreen extends StatelessWidget {
   const BookmarksScreen({Key? key}) : super(key: key);
-  static const routeName = '/bookmarks';
+  static const routeName = 'bookmarks';
 
   @override
   Widget build(BuildContext context) {

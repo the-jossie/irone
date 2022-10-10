@@ -10,7 +10,7 @@ class VideoCallScreenArguments {
 
 class VideoCallScreen extends StatelessWidget {
   const VideoCallScreen({Key? key}) : super(key: key);
-  static const routeName = '/video-call';
+  static const routeName = 'video-call';
 
   @override
   Widget build(BuildContext context) {

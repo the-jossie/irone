@@ -28,7 +28,7 @@ class OnboardingLayout extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, '/signup'),
+                  onTap: () => Navigator.pushNamed(context, 'signup'),
                   child: const Text(
                     "Skip",
                     style: TextStyle(

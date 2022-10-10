@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 class AllServicesScreen extends StatefulWidget {
   const AllServicesScreen({Key? key}) : super(key: key);
-  static const routeName = '/all-services';
+  static const routeName = 'all-services';
 
   @override
   State<AllServicesScreen> createState() => _AllServicesScreenState();

@@ -11,7 +11,7 @@ class MessageTile extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(
         context,
-        '/chat',
+        'chat',
         arguments: ChatScreenArguments(doctor: message.doctor),
       ),
       child: Container(

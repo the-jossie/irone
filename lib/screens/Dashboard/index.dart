@@ -7,7 +7,7 @@ import 'package:irone/widgets/organisms/SideDrawer.dart';
 import 'package:flutter/material.dart';
 
 class Dashlayout extends StatefulWidget {
-  static const routeName = '/';
+  static const routeName = 'dashboard';
   const Dashlayout({Key? key}) : super(key: key);
 
   @override

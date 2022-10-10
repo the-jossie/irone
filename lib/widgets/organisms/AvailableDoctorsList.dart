@@ -30,7 +30,7 @@ class AvailableDoctorsList extends StatelessWidget {
                       GestureDetector(
                         onTap: () => Navigator.pushNamed(
                           context,
-                          '/chat',
+                          'chat',
                           arguments: ChatScreenArguments(doctor: doctor),
                         ),
                         child: Container(
