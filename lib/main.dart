@@ -4,12 +4,15 @@ import 'package:flutter/services.dart';
 
 import 'screens/onboarding/index.dart';
 import 'routes.dart';
+import 'set_up.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
+
+  await setUpServiceLocator();
 
   await Firebase.initializeApp();
 
