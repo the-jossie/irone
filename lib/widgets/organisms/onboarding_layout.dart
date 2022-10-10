@@ -7,6 +7,7 @@ class OnboardingLayout extends StatelessWidget {
   final String image;
   final String buttonText;
   final Function buttonClick;
+  final Function skipBtnClick;
 
   const OnboardingLayout({
     Key? key,
@@ -15,6 +16,7 @@ class OnboardingLayout extends StatelessWidget {
     required this.image,
     required this.buttonText,
     required this.buttonClick,
+    required this.skipBtnClick,
   }) : super(key: key);
 
   @override
@@ -28,7 +30,7 @@ class OnboardingLayout extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 GestureDetector(
-                  onTap: () => Navigator.pushNamed(context, 'signup'),
+                  onTap: () => skipBtnClick(),
                   child: const Text(
                     "Skip",
                     style: TextStyle(
@@ -66,6 +68,7 @@ class OnboardingLayout extends StatelessWidget {
       Button(
         buttonText: buttonText,
         buttonClick: buttonClick,
+        loading: false,
       )
     ]);
   }
