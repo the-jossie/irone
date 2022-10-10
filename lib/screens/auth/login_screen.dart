@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../dashboard/index.dart';
 import '/view_models/login_view_model.dart';
 import '/widgets/atoms/Button.dart';
 import '/widgets/atoms/Input.dart';
@@ -111,10 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 36),
                       Button(
                         buttonText: 'Log In with Google',
-                        buttonClick: () async {
-                          await viewModel.loginWithGoogle();
-                          Navigator.pushNamed(context, Dashlayout.routeName);
-                        },
+                        buttonClick: viewModel.loginWithGoogle,
                       ),
                       const SizedBox(height: 14),
                       GestureDetector(

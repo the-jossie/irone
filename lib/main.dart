@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'config/app_config.dart';
 import 'screens/onboarding/index.dart';
 import 'routes.dart';
 import 'set_up.dart';
@@ -26,6 +27,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Irone',
+      initialRoute: OnboardingScreen.routeName,
+      routes: routes,
+      navigatorKey: AppConfigService.navigatorKey,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         primaryColor: const Color(0xffEF873D),
@@ -37,8 +41,6 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch()
             .copyWith(secondary: const Color(0xff2b67f6)),
       ),
-      initialRoute: OnboardingScreen.routeName,
-      routes: routes,
     );
   }
 }

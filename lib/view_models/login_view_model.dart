@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:stacked/stacked.dart';
 
+import '../config/app_config.dart';
+import '../screens/dashboard/index.dart';
 import '../set_up.dart';
 
 class LoginViewModel extends BaseViewModel {
@@ -40,5 +42,7 @@ class LoginViewModel extends BaseViewModel {
     await FirebaseAuth.instance.signInWithCredential(credential);
 
     notifyListeners();
+
+    AppConfigService.offAllNamed(Dashlayout.routeName);
   }
 }
