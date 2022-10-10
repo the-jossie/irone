@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:irone/config/app_state.dart';
 import 'package:stacked/stacked.dart';
 
 import '/view_models/login_view_model.dart';
@@ -111,6 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Button(
                         buttonText: 'Log In with Google',
                         buttonClick: viewModel.loginWithGoogle,
+                        loading: viewModel.appState == AppState.loading,
                       ),
                       const SizedBox(height: 14),
                       GestureDetector(
