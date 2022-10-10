@@ -13,7 +13,6 @@ void main() async {
   ]);
 
   await setUpServiceLocator();
-
   await Firebase.initializeApp();
 
   runApp(const MyApp());
