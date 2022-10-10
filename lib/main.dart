@@ -9,12 +9,12 @@ import 'set_up.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await setUpServiceLocator();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-
-  await setUpServiceLocator();
-  await Firebase.initializeApp();
 
   runApp(const MyApp());
 }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 import '/view_models/login_view_model.dart';
-import '/widgets/atoms/Button.dart';
-import '/widgets/atoms/Input.dart';
+import '/widgets/atoms/button.dart';
+import '/widgets/atoms/input.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = 'login';
