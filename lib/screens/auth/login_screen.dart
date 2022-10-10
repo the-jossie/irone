@@ -111,13 +111,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 36),
                       Button(
                         buttonText: 'Log In with Google',
-                        buttonClick: () {
-                          viewModel.loginWithGoogle();
-                          // final provider =
-                          //     Provider.of<AuthService>(context, listen: false);
-
-                          // provider.googleLogin();
-
+                        buttonClick: () async {
+                          await viewModel.loginWithGoogle();
                           Navigator.pushNamed(context, Dashlayout.routeName);
                         },
                       ),
