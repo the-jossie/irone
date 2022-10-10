@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'config/app_config.dart';
-import 'screens/onboarding/index.dart';
 import 'routes.dart';
+import 'screens/splash_screen.dart';
 import 'set_up.dart';
 
 void main() async {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Irone',
-      initialRoute: OnboardingScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: routes,
       navigatorKey: AppConfigService.navigatorKey,
       theme: ThemeData(
