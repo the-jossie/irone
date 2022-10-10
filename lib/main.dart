@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:irone/widgets/organisms/dash_layout.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'models/message.dart';
-import 'models/user_model.dart';
-import 'models/emergency_services.dart';
+import 'controllers/auth.dart';
 import 'models/appointment.dart';
 import 'models/article.dart';
 import 'models/chat.dart';
 import 'models/doctor.dart';
+import 'models/emergency_services.dart';
+import 'models/message.dart';
+import 'models/user_model.dart';
 import 'services/auth.dart';
-import 'controllers/auth.dart';
-import 'views/onboarding/index.dart';
 import 'shared/app_theme.dart';
 import 'shared/routes.dart';
+import 'views/onboarding/index.dart';
+import 'widgets/organisms/dash_layout.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   await Firebase.initializeApp();
 
   runApp(const IroneApp());
