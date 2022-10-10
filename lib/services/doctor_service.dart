@@ -1,1 +1,3 @@
-class DoctorService {}
+class DoctorService {
+  Future getDoctors() async {}
+}
