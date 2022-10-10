@@ -110,14 +110,14 @@ class AppointmentTile extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.check_circle_outline,
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                       size: 15,
                     ),
                     const SizedBox(width: 2),
                     Text(
                       "Done",
                       style: TextStyle(
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
                   ],

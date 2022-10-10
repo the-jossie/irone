@@ -190,7 +190,7 @@ class ReadArticleScreen extends StatelessWidget {
                     onPressed: () => {},
                     icon: Icon(
                       Icons.emoji_emotions_outlined,
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -217,7 +217,7 @@ class ReadArticleScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12)),
                     child: Icon(
                       Icons.send_outlined,
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                 ],

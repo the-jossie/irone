@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         "create an Account",
                         style: TextStyle(
-                            color: Theme.of(context).accentColor,
+                            color: Theme.of(context).colorScheme.secondary,
                             fontWeight: FontWeight.bold),
                       ),
                     )

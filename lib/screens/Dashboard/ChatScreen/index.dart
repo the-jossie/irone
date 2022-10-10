@@ -81,7 +81,7 @@ class ChatScreen extends StatelessWidget {
               ),
               child: Icon(
                 Icons.call_outlined,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
           ),
@@ -102,7 +102,7 @@ class ChatScreen extends StatelessWidget {
               ),
               child: Icon(
                 Icons.videocam_outlined,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
           ),
@@ -191,7 +191,7 @@ class ChatScreen extends StatelessWidget {
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 9,
-                                color: Theme.of(context).accentColor),
+                                color: Theme.of(context).colorScheme.secondary),
                           ),
                           const SizedBox(width: 4),
                           Text(
@@ -225,7 +225,7 @@ class ChatScreen extends StatelessWidget {
                         color: Color(0xfff9f6f4), shape: BoxShape.circle),
                     child: Icon(
                       Icons.add,
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   const SizedBox(width: 13),
@@ -235,7 +235,7 @@ class ChatScreen extends StatelessWidget {
                         color: Color(0xfff9f6f4), shape: BoxShape.circle),
                     child: Icon(
                       Icons.attach_file_outlined,
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -273,7 +273,7 @@ class ChatScreen extends StatelessWidget {
                           color: Color(0xfff9f6f4), shape: BoxShape.circle),
                       child: Icon(
                         Icons.send_outlined,
-                        color: Theme.of(context).accentColor,
+                        color: Theme.of(context).colorScheme.secondary,
                       ),
                     ),
                   ),

@@ -47,7 +47,7 @@ class AllArticlesScreen extends StatelessWidget {
               ),
               child: Icon(
                 Icons.search_outlined,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
           ),

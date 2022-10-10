@@ -85,7 +85,7 @@ class DoctorTile extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 8,
-                          color: Theme.of(context).accentColor),
+                          color: Theme.of(context).colorScheme.secondary),
                     ),
                     const SizedBox(width: 4),
                     Text(

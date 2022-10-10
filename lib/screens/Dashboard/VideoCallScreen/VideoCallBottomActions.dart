@@ -26,7 +26,7 @@ class VideoCallBottomActions extends StatelessWidget {
               ),
               child: Icon(
                 Icons.message_outlined,
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
           ),
@@ -52,7 +52,7 @@ class VideoCallBottomActions extends StatelessWidget {
             ),
             child: Icon(
               Icons.sync_alt_outlined,
-              color: Theme.of(context).accentColor,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ],

@@ -43,12 +43,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         primaryColor: const Color(0xffEF873D),
-        accentColor: const Color(0xff2b67f6),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
           elevation: 0,
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: const Color(0xff2b67f6)),
       ),
       initialRoute: OnboardingScreen.routeName,
       routes: {
