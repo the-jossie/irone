@@ -45,6 +45,7 @@ class OnlineConsultView extends StatelessWidget {
             ChatScreen.routeName,
             arguments: ChatScreenArguments(doctor: doctor),
           ),
+          loading: false,
         ),
       ],
     );

@@ -141,6 +141,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       buttonText: 'Sign Up',
                       buttonClick: () =>
                           Navigator.pushNamed(context, 'complete-profile'),
+                      loading: false,
                     ),
                     const SizedBox(height: 14),
                     GestureDetector(

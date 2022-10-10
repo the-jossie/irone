@@ -68,6 +68,7 @@ class _CompleteServiceScreenState extends State<CompleteServiceScreen> {
                 ),
                 const SizedBox(height: 36),
                 Button(
+                  loading: false,
                   buttonText: 'Done',
                   buttonClick: () => Navigator.pushNamed(context, 'login'),
                 ),

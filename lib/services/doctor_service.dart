@@ -1,3 +1,7 @@
+import '/models/doctor.dart';
+
 class DoctorService {
-  Future getDoctors() async {}
+  Future getDoctors() async {
+    return Doctors().items;
+  }
 }

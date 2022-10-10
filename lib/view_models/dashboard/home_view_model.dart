@@ -27,6 +27,7 @@ class HomeViewModel extends BaseViewModel {
     try {
       final response = await _doctorService.getDoctors();
       doctorsList = response;
+      notifyListeners();
     } catch (e) {}
   }
 

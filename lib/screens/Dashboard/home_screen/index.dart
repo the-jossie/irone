@@ -29,49 +29,49 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // AvailableDoctorsList(
-              //   doctorsList: viewModel.doctorsList,
-              // ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: [
-              //     const Text(
-              //       "Top Articles",
-              //       style: TextStyle(
-              //         fontWeight: FontWeight.bold,
-              //         fontSize: 24,
-              //       ),
-              //     ),
-              //     GestureDetector(
-              //       onTap: () => Navigator.pushNamed(
-              //           context, AllArticlesScreen.routeName),
-              //       child: const Text(
-              //         "See all",
-              //         style: TextStyle(
-              //             fontWeight: FontWeight.w500,
-              //             fontSize: 14,
-              //             color: Color(0x80393938)),
-              //       ),
-              //     )
-              //   ],
-              // ),
-              // const SizedBox(height: 20),
-              // ArticleList(
-              //   articlesList: viewModel.articlesList,
-              // ),
-              // const SizedBox(height: 20),
-              // EmergencyServicesList(
-              //   title: "Find Your Services",
-              //   titleSize: 18,
-              //   services: viewModel.emergencyServicesList,
-              //   selectedEmergencyServices: selectedEmergencyServices,
-              //   onClick: (EmergencyService service) => Navigator.pushNamed(
-              //     context,
-              //     CategoryScreen.routeName,
-              //     arguments: CategoryScreenArguments(service.name),
-              //   ),
-              //   showMore: true,
-              // ),
+              AvailableDoctorsList(
+                doctorsList: viewModel.doctorsList,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Top Articles",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(
+                        context, AllArticlesScreen.routeName),
+                    child: const Text(
+                      "See all",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          color: Color(0x80393938)),
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(height: 20),
+              ArticleList(
+                articlesList: viewModel.articlesList,
+              ),
+              const SizedBox(height: 20),
+              EmergencyServicesList(
+                title: "Find Your Services",
+                titleSize: 18,
+                services: viewModel.emergencyServicesList,
+                selectedEmergencyServices: selectedEmergencyServices,
+                onClick: (EmergencyService service) => Navigator.pushNamed(
+                  context,
+                  CategoryScreen.routeName,
+                  arguments: CategoryScreenArguments(service.name),
+                ),
+                showMore: true,
+              ),
             ],
           ),
         ),

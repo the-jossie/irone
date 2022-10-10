@@ -12,6 +12,7 @@ class AppointmentView extends StatelessWidget {
           Button(
             buttonText: 'Book Appointment',
             buttonClick: () => {},
+            loading: false,
           ),
         ],
       ),

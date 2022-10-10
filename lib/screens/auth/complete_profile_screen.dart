@@ -155,6 +155,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                     buttonText: 'Continue',
                     buttonClick: () =>
                         Navigator.pushNamed(context, 'complete-service'),
+                    loading: false,
                   ),
                   const SizedBox(height: 14),
                 ],
