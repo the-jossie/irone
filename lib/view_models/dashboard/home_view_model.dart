@@ -21,39 +21,37 @@ class HomeViewModel extends BaseViewModel {
   List<EmergencyService> emergencyServicesList = [];
 
   void init() async {
-    appState = AppState.loading;
+    try {
+      appState = AppState.loading;
 
-    await fetchAllDoctors();
-    await fetchAllArticles();
-    await fetchAllEmergencyServices();
+      await fetchAllDoctors();
+      await fetchAllArticles();
+      await fetchAllEmergencyServices();
 
-    appState = AppState.none;
+      appState = AppState.none;
+    } catch (e) {
+      appState = AppState.error;
+    }
   }
 
   Future<void> fetchAllDoctors() async {
-    try {
-      final response = await _doctorService.getDoctors();
+    final response = await _doctorService.getDoctors();
 
-      doctorsList = response;
-      notifyListeners();
-    } catch (e) {}
+    doctorsList = response;
+    notifyListeners();
   }
 
   Future<void> fetchAllArticles() async {
-    try {
-      final response = await _articleService.getArticles();
+    final response = await _articleService.getArticles();
 
-      articlesList = response;
-      notifyListeners();
-    } catch (e) {}
+    articlesList = response;
+    notifyListeners();
   }
 
   Future<void> fetchAllEmergencyServices() async {
-    try {
-      final response = await _emergencyServicesService.getEmergencyServices();
+    final response = await _emergencyServicesService.getEmergencyServices();
 
-      emergencyServicesList = response;
-      notifyListeners();
-    } catch (e) {}
+    emergencyServicesList = response;
+    notifyListeners();
   }
 }
