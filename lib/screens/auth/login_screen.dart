@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:irone/config/app_state.dart';
 import 'package:stacked/stacked.dart';
 
@@ -110,15 +111,53 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       const SizedBox(height: 36),
                       Button(
-                        buttonText: 'Log In with Google',
-                        buttonClick: viewModel.loginWithGoogle,
-                        loading: viewModel.appState == AppState.loading,
+                        buttonText: 'Log In',
+                        buttonClick: () {},
+                        loading: false,
                       ),
-                      const SizedBox(height: 14),
+                      const SizedBox(height: 40),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            color: Colors.black26,
+                            height: 2,
+                            width: 50,
+                          ),
+                          const SizedBox(width: 10),
+                          const Text("Or continue with"),
+                          const SizedBox(width: 10),
+                          Container(
+                            color: Colors.black54,
+                            height: 2,
+                            width: 50,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 30),
+                      IgnorePointer(
+                        ignoring: viewModel.appState == AppState.loading,
+                        child: ElevatedButton(
+                          onPressed: viewModel.loginWithGoogle,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            minimumSize: const Size(100, 57),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(14.0),
+                            ),
+                          ),
+                          child: viewModel.appState == AppState.loading
+                              ? const CircularProgressIndicator.adaptive()
+                              : SvgPicture.asset("assets/google.svg"),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      const Text("Don't have an account?"),
+                      const SizedBox(height: 10),
                       GestureDetector(
                         onTap: () => Navigator.pushNamed(context, 'signup'),
                         child: Text(
-                          "create an Account",
+                          "Register here",
                           style: TextStyle(
                               color: Theme.of(context).colorScheme.secondary,
                               fontWeight: FontWeight.bold),

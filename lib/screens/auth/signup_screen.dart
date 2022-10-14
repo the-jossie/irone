@@ -135,7 +135,9 @@ class _SignupScreenState extends State<SignupScreen> {
                         buttonClick: viewModel.completeProfile,
                         loading: false,
                       ),
-                      const SizedBox(height: 14),
+                      const SizedBox(height: 30),
+                      const Text("Already have an account?"),
+                      const SizedBox(height: 10),
                       GestureDetector(
                         onTap: () => Navigator.pushNamed(context, 'login'),
                         child: Text(
